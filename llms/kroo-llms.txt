@@ -1,0 +1,34 @@
+# Kroo
+
+> Kroo Bank Ltd is a UK app-based challenger bank (founded 2016, full PRA/FCA banking licence 2021) offering a fee-free digital current account. As an FCA-authorised ASPSP under PSD2, Kroo exposes the UK Open Banking Implementation Entity (OBIE) Read/Write API family — Account & Transaction Information, Payment Initiation, and Confirmation of Funds — through a Banfico-hosted developer portal, secured with FAPI-grade OAuth2/OIDC, PSD2 SCA (CIBA decoupled flow), and mutual-TLS with OBIE/eIDAS certificates. Access requires third-party-provider (TPP) onboarding; there is no anonymous public API.
+
+## APIs
+
+- [Kroo Account and Transaction Information API](https://developer.kroo.banfico.io/): PSD2 AIS dedicated interface (OBIE Read/Write v4.0.1) — accounts, balances, transactions, beneficiaries, standing orders, direct debits, scheduled payments, statements.
+- [Kroo Payment Initiation API](https://developer.kroo.banfico.io/): PSD2 PIS dedicated interface (OBIE Read/Write v4.0.1) — domestic payments, scheduled payments, standing orders, file payments.
+- [Kroo Confirmation of Funds API](https://developer.kroo.banfico.io/): PSD2 CBPII dedicated interface (OBIE Read/Write v4.0.1) — confirm funds availability without disclosing balance.
+
+## Specs
+
+- [Account & Transaction OpenAPI](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/openapi/obie-account-info-openapi.yaml)
+- [Payment Initiation OpenAPI](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/openapi/obie-payment-initiation-openapi.yaml)
+- [Confirmation of Funds OpenAPI](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/openapi/obie-confirmation-funds-openapi.yaml)
+
+## Semantics
+
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/authentication/kroo-authentication.yml): FAPI 1.0 Advanced, OAuth2 (client_credentials + authorization_code), mTLS, CIBA SCA.
+- [OAuth scopes](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/scopes/kroo-scopes.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/conventions/kroo-conventions.yml): idempotency (x-idempotency-key), FAPI headers, JWS signing, pagination, versioning.
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/errors/kroo-problem-types.yml): OBIE OBErrorResponse1 envelope.
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/lifecycle/kroo-lifecycle.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/conformance/kroo-conformance.yml): OAuth2, OIDC, FAPI 1.0 Advanced, PSD2, mTLS, JWS.
+- [Data model](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/data-model/kroo-data-model.yml)
+
+## Docs
+
+- [Developer Portal](https://developer.kroo.banfico.io/)
+- [Open Banking at Kroo](https://kroo.com/blog/open-banking-at-kroo)
+- [Open Banking Performance](https://kroo.com/open-banking-performance)
+- [OBIE Read/Write API Specs](https://github.com/OpenBankingUK/read-write-api-specs)
+- [Status Page](https://status.kroo.com/)
+- [Security contact](https://kroo.com/.well-known/security.txt): security@kroo.com

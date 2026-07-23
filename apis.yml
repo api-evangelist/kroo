@@ -2,21 +2,18 @@ aid: kroo
 url: https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/apis.yml
 name: Kroo
 kind: company
-description: Kroo Bank Ltd is a UK app-based challenger bank, founded in 2016 and
-  granted a full UK banking licence by the PRA/FCA in 2021 (restrictions lifted in
-  2022), that launched its digital-only personal current account in December 2022.
-  Independent and venture-backed rather than mutual or part of a larger group, Kroo
-  offers a fee-free everyday current account, interest-paying balances and "Kroo
-  Pots", fee-free spending abroad, and FSCS deposit protection up to GBP 85,000.
-  As an FCA-authorised ASPSP under PSD2, Kroo is a regulated Open Banking provider
-  (though not one of the nine CMA9-mandated banks and, as a branchless digital bank,
-  it publishes no Open Data reference APIs for ATMs or branches). It exposes the UK
-  Open Banking Implementation Entity (OBIE) Read/Write API family - Account and
-  Transaction Information, Payment Initiation, and Confirmation of Funds - through a
-  Banfico-hosted developer portal at developer.kroo.banfico.io, secured with
-  FAPI-grade OAuth2/OIDC, PSD2 strong customer authentication implemented as a CIBA
-  decoupled (poll-mode) flow, and mutual-TLS client authentication using OBIE/eIDAS
-  certificates, validated with the OpenID Foundation conformance suite.
+description: Kroo Bank Ltd is a UK app-based challenger bank, founded in 2016 and granted a full UK banking
+  licence by the PRA/FCA in 2021 (restrictions lifted in 2022), that launched its digital-only personal
+  current account in December 2022. Independent and venture-backed rather than mutual or part of a larger
+  group, Kroo offers a fee-free everyday current account, interest-paying balances and "Kroo Pots", fee-free
+  spending abroad, and FSCS deposit protection up to GBP 85,000. As an FCA-authorised ASPSP under PSD2,
+  Kroo is a regulated Open Banking provider (though not one of the nine CMA9-mandated banks and, as a
+  branchless digital bank, it publishes no Open Data reference APIs for ATMs or branches). It exposes
+  the UK Open Banking Implementation Entity (OBIE) Read/Write API family - Account and Transaction Information,
+  Payment Initiation, and Confirmation of Funds - through a Banfico-hosted developer portal at developer.kroo.banfico.io,
+  secured with FAPI-grade OAuth2/OIDC, PSD2 strong customer authentication implemented as a CIBA decoupled
+  (poll-mode) flow, and mutual-TLS client authentication using OBIE/eIDAS certificates, validated with
+  the OpenID Foundation conformance suite.
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -48,12 +45,11 @@ specificationVersion: '0.19'
 apis:
 - aid: kroo:kroo-account-information-api
   name: Kroo Account and Transaction Information API
-  description: Kroo's PSD2 Account Information Service (AIS) dedicated interface,
-    conformant to the OBIE Read/Write Account and Transaction API Standard. Lets
-    FCA-authorised AISP third parties retrieve, with customer consent, account
-    details, balances, transactions, beneficiaries, standing orders, direct debits,
-    scheduled payments, and statements. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA
-    via CIBA); access requires TPP onboarding through the Kroo developer portal.
+  description: Kroo's PSD2 Account Information Service (AIS) dedicated interface, conformant to the OBIE
+    Read/Write Account and Transaction API Standard. Lets FCA-authorised AISP third parties retrieve,
+    with customer consent, account details, balances, transactions, beneficiaries, standing orders, direct
+    debits, scheduled payments, and statements. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA);
+    access requires TPP onboarding through the Kroo developer portal.
   humanURL: https://developer.kroo.banfico.io/
   baseURL: ''
   tags:
@@ -70,14 +66,15 @@ apis:
     url: https://github.com/OpenBankingUK/read-write-api-specs
   - type: Documentation
     url: https://kroo.com/blog/open-banking-at-kroo
+  - type: Overlay
+    url: overlays/kroo-account-info-overlay.yaml
 - aid: kroo:kroo-payment-initiation-api
   name: Kroo Payment Initiation API
-  description: Kroo's PSD2 Payment Initiation Service (PIS) dedicated interface,
-    conformant to the OBIE Read/Write Payment Initiation API Standard. Lets
-    FCA-authorised PISP third parties initiate domestic payments, scheduled
-    payments, standing orders, and file payments from a customer's Kroo current
-    account with their consent. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via
-    CIBA); access requires TPP onboarding through the Kroo developer portal.
+  description: Kroo's PSD2 Payment Initiation Service (PIS) dedicated interface, conformant to the OBIE
+    Read/Write Payment Initiation API Standard. Lets FCA-authorised PISP third parties initiate domestic
+    payments, scheduled payments, standing orders, and file payments from a customer's Kroo current account
+    with their consent. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA); access requires TPP onboarding
+    through the Kroo developer portal.
   humanURL: https://developer.kroo.banfico.io/
   baseURL: ''
   tags:
@@ -94,14 +91,15 @@ apis:
     url: https://github.com/OpenBankingUK/read-write-api-specs
   - type: Documentation
     url: https://kroo.com/blog/open-banking-at-kroo
+  - type: Overlay
+    url: overlays/kroo-payment-initiation-overlay.yaml
 - aid: kroo:kroo-confirmation-of-funds-api
   name: Kroo Confirmation of Funds API
-  description: Kroo's PSD2 Confirmation of Funds Service (CBPII) dedicated interface,
-    conformant to the OBIE Read/Write Confirmation of Funds API Standard. Lets
-    FCA-authorised CBPII third parties confirm, with customer consent, whether a
-    specified amount is available on a Kroo account without disclosing the balance.
-    FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA); access requires TPP
-    onboarding through the Kroo developer portal.
+  description: Kroo's PSD2 Confirmation of Funds Service (CBPII) dedicated interface, conformant to the
+    OBIE Read/Write Confirmation of Funds API Standard. Lets FCA-authorised CBPII third parties confirm,
+    with customer consent, whether a specified amount is available on a Kroo account without disclosing
+    the balance. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA); access requires TPP onboarding
+    through the Kroo developer portal.
   humanURL: https://developer.kroo.banfico.io/
   baseURL: ''
   tags:
@@ -118,7 +116,19 @@ apis:
     url: https://github.com/OpenBankingUK/read-write-api-specs
   - type: Documentation
     url: https://kroo.com/blog/open-banking-at-kroo
+  - type: Overlay
+    url: overlays/kroo-confirmation-funds-overlay.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/kroo-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/kroo-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/kroo-domain-security.yml
+- type: OAuthScopes
+  url: scopes/kroo-scopes.yml
+- type: Authentication
+  url: authentication/kroo-authentication.yml
 - type: Website
   url: https://www.kroo.com/
 - type: DeveloperPortal
@@ -137,6 +147,30 @@ common:
   url: https://www.kroo.com/privacy-notices
 - type: LinkedIn
   url: https://www.linkedin.com/company/kroobank
+- type: SecurityTxt
+  url: well-known/kroo-security.txt
+- type: WellKnown
+  url: well-known/kroo-well-known.yml
+- type: Security
+  url: https://kroo.com/.well-known/security.txt
+- type: Conventions
+  url: conventions/kroo-conventions.yml
+- type: Idempotency
+  url: conventions/kroo-conventions.yml
+- type: ErrorCatalog
+  url: errors/kroo-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/kroo-lifecycle.yml
+- type: Conformance
+  url: conformance/kroo-conformance.yml
+- type: DataModel
+  url: data-model/kroo-data-model.yml
+- type: LLMsTxt
+  url: llms/kroo-llms.txt
+- type: MCPServer
+  url: mcp/kroo-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

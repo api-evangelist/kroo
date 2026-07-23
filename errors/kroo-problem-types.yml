@@ -1,0 +1,67 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/obie-account-info-openapi.yaml,
+  openapi/obie-payment-initiation-openapi.yaml,
+  openapi/obie-confirmation-funds-openapi.yaml
+format: obie-error
+envelope:
+  media_type: application/json
+  schema: OBErrorResponse1
+  fields:
+    Code: High-level textual error code, e.g. a short description of the HTTP status.
+    Id: Unique reference (typically the x-fapi-interaction-id) to help trace the error.
+    Message: Brief description of the error.
+    Errors: Array of OBError1 objects (ErrorCode, Message, Path, Url).
+notes: >-
+  Kroo follows the OBIE Read/Write error model (not RFC 9457 problem+json). The
+  detailed error taxonomy is carried in the Errors[] array via OBIE ErrorCodes
+  such as UK.OBIE.Field.Missing, UK.OBIE.Field.Invalid, UK.OBIE.Resource.NotFound,
+  UK.OBIE.Resource.ConsentMismatch, UK.OBIE.Unsupported.* and
+  UK.OBIE.Reauthenticate. Status list derived from the responses declared across
+  the three OpenAPI documents.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: Request is malformed or fails OBIE field validation.
+  obie_error_codes:
+  - UK.OBIE.Field.Missing
+  - UK.OBIE.Field.Invalid
+  - UK.OBIE.Field.Unexpected
+- status: 401
+  title: Unauthorized
+  meaning: Missing, invalid, or expired access token / SCA required.
+  obie_error_codes:
+  - UK.OBIE.Reauthenticate
+- status: 403
+  title: Forbidden
+  meaning: Token lacks the scope/consent required for the resource.
+- status: 404
+  title: Not Found
+  meaning: The referenced resource or consent does not exist.
+  obie_error_codes:
+  - UK.OBIE.Resource.NotFound
+- status: 405
+  title: Method Not Allowed
+  meaning: HTTP method not permitted on this resource.
+- status: 406
+  title: Not Acceptable
+  meaning: Requested representation (Accept header) not supported.
+- status: 409
+  title: Conflict
+  meaning: Resource state conflict (e.g. idempotency-key reuse with a different body, or consent already used).
+- status: 415
+  title: Unsupported Media Type
+  meaning: Request Content-Type not supported.
+- status: 422
+  title: Unprocessable Entity
+  meaning: Semantically invalid request (e.g. rejected payment or business-rule failure).
+  obie_error_codes:
+  - UK.OBIE.Resource.ConsentMismatch
+  - UK.OBIE.Rules.*
+- status: 429
+  title: Too Many Requests
+  meaning: Per-TPP rate limit exceeded; retry after the indicated interval.
+- status: 500
+  title: Internal Server Error
+  meaning: Unexpected ASPSP-side error.

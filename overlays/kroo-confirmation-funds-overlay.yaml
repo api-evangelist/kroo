@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Kroo Confirmation of Funds API
+  version: 1.0.0
+extends: openapi/obie-confirmation-funds-openapi.yaml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: kroo
+    x-apievangelist-standard: OBIE Read/Write API Standard v4.0.1
+    x-apievangelist-security-profile: FAPI 1.0 Advanced (OAuth2/OIDC + mTLS + detached JWS, PSD2 SCA via CIBA)
+    x-apievangelist-portal: https://developer.kroo.banfico.io/
+    x-apievangelist-conventions: conventions/kroo-conventions.yml
+    x-apievangelist-errors: errors/kroo-problem-types.yml
+- target: $.info
+  update:
+    x-apievangelist-note: >-
+      Server URL in the source spec is a relative OBIE base path
+      (/open-banking/v4.0/...); the live host is issued per-TPP at onboarding
+      through the Banfico-hosted Kroo developer portal.

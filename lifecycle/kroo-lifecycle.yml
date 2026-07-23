@@ -1,0 +1,30 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://status.kroo.com/, https://kroo.com/open-banking-performance,
+  OBIE Read/Write API Standard v4.0.1, openapi/*
+versioning:
+  scheme: uri-path
+  current: v4.0
+  base_path_pattern: /open-banking/v4.0/{aisp|pisp|cbpii}
+  spec_version: 4.0.1
+  standard: UK Open Banking Read/Write API Standard (OBIE / OBL)
+  note: >-
+    Version is carried in the URI path. Kroo tracks the OBIE Read/Write release
+    train; deprecation of superseded major versions follows the OBL standard's
+    published version-retirement timeline rather than a Kroo-specific policy page.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: >-
+    No Kroo-specific deprecation policy page was found; version lifecycle is
+    governed by the OBL Read/Write standard. No operations in the current specs
+    are marked deprecated.
+sla:
+  performance_url: https://kroo.com/open-banking-performance
+  note: >-
+    As an FCA-authorised ASPSP, Kroo publishes Open Banking API availability and
+    performance metrics (the PSD2 dedicated-interface reporting obligation) at
+    the open-banking-performance page.
+status_page: https://status.kroo.com/
+deprecated_operations: []

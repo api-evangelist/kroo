@@ -1,0 +1,22 @@
+generated: '2026-07-23'
+method: generated
+source: grounded in verified operationIds from openapi/*
+skills:
+- file: kroo-account-information.md
+  name: Retrieve Kroo account data with an AIS consent
+  api: openapi/obie-account-info-openapi.yaml
+  operations:
+  - CreateAccountAccessConsents
+  - GetAccountAccessConsentsConsentId
+  - GetAccounts
+  - GetAccountsAccountId
+  - GetAccountsAccountIdBalances
+  - GetAccountsAccountIdTransactions
+- file: kroo-domestic-payment.md
+  name: Initiate a Kroo domestic payment (PIS)
+  api: openapi/obie-payment-initiation-openapi.yaml
+  operations:
+  - CreateDomesticPaymentConsents
+  - GetDomesticPaymentConsentsConsentId
+  - CreateDomesticPayments
+  - GetDomesticPaymentsDomesticPaymentId

@@ -1,0 +1,72 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/obie-account-info-openapi.yaml,
+  openapi/obie-payment-initiation-openapi.yaml,
+  openapi/obie-confirmation-funds-openapi.yaml
+standard: UK Open Banking Read/Write API Standard v4.0.1 (OBIE)
+notes: >-
+  Kroo's dedicated PSD2 interface implements the OBIE Read/Write standard, so
+  its cross-cutting semantics are the OBIE conventions (FAPI headers, consent
+  model, JWS message signing, idempotency on payment writes). Derived from the
+  three OpenAPI documents in openapi/.
+authentication:
+  style: FAPI 1.0 Advanced OAuth2/OIDC + mTLS
+  schemes:
+  - TPPOAuth2Security (client_credentials — TPP-to-ASPSP)
+  - PSUOAuth2Security (authorization_code — PSU SCA)
+  sca: PSD2 Strong Customer Authentication via CIBA decoupled (poll) flow
+  client_auth: mutual-TLS with OBIE/eIDAS certificates (tls_client_auth)
+  bearer_header: Authorization (Bearer access token)
+  ref: authentication/kroo-authentication.yml
+idempotency:
+  supported: true
+  header: x-idempotency-key
+  scope: payment-initiation write operations (create payment / consent resources)
+  max_length: 40
+  behavior: >-
+    A PISP must supply a unique x-idempotency-key on payment resource creation.
+    Replaying the same key with an identical request within the retention window
+    returns the original resource rather than creating a duplicate.
+  evidence: x-idempotency-key parameter on POST operations in obie-payment-initiation-openapi.yaml
+request_tracing:
+  interaction_id_header: x-fapi-interaction-id
+  description: >-
+    RFC-style correlation id echoed by the ASPSP on every request/response for
+    end-to-end tracing. Additional FAPI headers: x-fapi-auth-date,
+    x-fapi-customer-ip-address, x-customer-user-agent.
+message_signing:
+  header: x-jws-signature
+  description: Detached JWS signature over the request/response body on payment operations.
+pagination:
+  style: page-links
+  response_fields:
+  - Links.Self
+  - Links.First
+  - Links.Prev
+  - Links.Next
+  - Links.Last
+  meta_field: Meta.TotalPages
+  note: OBIE resource collections carry Links + Meta blocks for navigation.
+versioning:
+  scheme: uri-path
+  current: v4.0
+  base_path_pattern: /open-banking/v4.0/{aisp|pisp|cbpii}
+error_envelope:
+  media_type: application/json
+  schema: OBErrorResponse1
+  fields:
+  - Code
+  - Id
+  - Message
+  - Errors[] (ErrorCode, Message, Path, Url)
+  ref: errors/kroo-problem-types.yml
+rate_limiting:
+  signaled: true
+  status: 429 Too Many Requests documented on operations
+  note: Per-TPP throttling applied by the ASPSP; specific limits are set at onboarding.
+cross_links:
+  authentication: authentication/kroo-authentication.yml
+  scopes: scopes/kroo-scopes.yml
+  errors: errors/kroo-problem-types.yml
+  lifecycle: lifecycle/kroo-lifecycle.yml

@@ -1,0 +1,41 @@
+generated: '2026-07-23'
+method: searched
+source: live probes of kroo.com and developer.kroo.banfico.io well-known surfaces
+notes: >-
+  The Banfico-hosted developer portal (developer.kroo.banfico.io) is a
+  client-rendered single-page app that returns its HTML shell (HTTP 200) for
+  every path, so /.well-known/* and /llms.txt and /openapi.json there are NOT
+  real documents. Only the corporate apex (kroo.com) publishes a genuine
+  RFC 9116 security.txt. OIDC/OAuth authorization-server metadata for the Open
+  Banking interface is issued per-TPP behind onboarding and is not anonymously
+  discoverable.
+hosts:
+- host: https://kroo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: kroo-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://www.kroo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 302
+    redirect: https://kroo.com/.well-known/security.txt
+- host: https://developer.kroo.banfico.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: SPA HTML shell, not a real security.txt
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: SPA HTML shell, not real OIDC metadata
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    note: SPA HTML shell, not real metadata

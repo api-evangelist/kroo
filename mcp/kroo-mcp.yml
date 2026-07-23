@@ -1,0 +1,47 @@
+generated: '2026-07-23'
+method: derived
+status: candidate
+source: >-
+  Derived from Kroo OBIE OpenAPI operations. No official/hosted Kroo or Banfico
+  MCP server was found. This is a CANDIDATE tool surface an agent could expose in
+  front of the FAPI-secured Open Banking APIs; every tool binds to a real
+  operationId and would inherit that operation's parameters as its inputSchema.
+  All access is consent- and mTLS-gated behind TPP onboarding.
+server:
+  name: kroo
+  transport: http
+  url: null
+tools:
+- name: create_account_access_consent
+  description: Create an AISP account-access consent (obtain consent to read account data).
+  source_operation: openapi/obie-account-info-openapi.yaml#CreateAccountAccessConsents
+- name: get_account_access_consent
+  description: Retrieve an account-access consent by ConsentId.
+  source_operation: openapi/obie-account-info-openapi.yaml#GetAccountAccessConsentsConsentId
+- name: list_accounts
+  description: List the PSU accounts available under the consent.
+  source_operation: openapi/obie-account-info-openapi.yaml#GetAccounts
+- name: get_account
+  description: Get a single account by AccountId.
+  source_operation: openapi/obie-account-info-openapi.yaml#GetAccountsAccountId
+- name: get_account_balances
+  description: Get balances for an account.
+  source_operation: openapi/obie-account-info-openapi.yaml#GetAccountsAccountIdBalances
+- name: get_account_transactions
+  description: Get transactions for an account.
+  source_operation: openapi/obie-account-info-openapi.yaml#GetAccountsAccountIdTransactions
+- name: create_domestic_payment_consent
+  description: Register a PISP intent to initiate a domestic payment.
+  source_operation: openapi/obie-payment-initiation-openapi.yaml#CreateDomesticPaymentConsents
+- name: create_domestic_payment
+  description: Initiate a domestic payment against an authorised consent (requires x-idempotency-key).
+  source_operation: openapi/obie-payment-initiation-openapi.yaml#CreateDomesticPayments
+- name: get_domestic_payment
+  description: Retrieve the status of a domestic payment by DomesticPaymentId.
+  source_operation: openapi/obie-payment-initiation-openapi.yaml#GetDomesticPaymentsDomesticPaymentId
+- name: create_funds_confirmation_consent
+  description: Create a CBPII funds-confirmation consent.
+  source_operation: openapi/obie-confirmation-funds-openapi.yaml#CreateFundsConfirmationConsents
+- name: create_funds_confirmation
+  description: Confirm whether a specified amount is available on an account.
+  source_operation: openapi/obie-confirmation-funds-openapi.yaml#CreateFundsConfirmations

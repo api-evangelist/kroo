@@ -1,0 +1,97 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/obie-account-info-openapi.yaml,
+  openapi/obie-payment-initiation-openapi.yaml,
+  openapi/obie-confirmation-funds-openapi.yaml
+standard: UK Open Banking Read/Write API Standard v4.0.1 (OBIE)
+notes: >-
+  Entity graph derived from the OBIE resource paths. In the OBIE model every data
+  interaction is anchored to a prior consent resource (ConsentId), which is the
+  hub linking a TPP's authorised access to the underlying account resources.
+entities:
+- name: AccountAccessConsent
+  api: account-information
+  id: ConsentId
+  description: AISP consent granting read access to a PSU's account data.
+- name: Account
+  api: account-information
+  id: AccountId
+  description: A PSU bank account exposed to the AISP under an access consent.
+- name: Balance
+  api: account-information
+- name: Transaction
+  api: account-information
+- name: Beneficiary
+  api: account-information
+- name: DirectDebit
+  api: account-information
+- name: StandingOrder
+  api: account-information
+- name: ScheduledPayment
+  api: account-information
+- name: Statement
+  api: account-information
+- name: Party
+  api: account-information
+- name: Product
+  api: account-information
+- name: DomesticPaymentConsent
+  api: payment-initiation
+  id: ConsentId
+  description: PISP consent authorising a single domestic payment.
+- name: DomesticPayment
+  api: payment-initiation
+  id: DomesticPaymentId
+- name: DomesticScheduledPaymentConsent
+  api: payment-initiation
+- name: DomesticStandingOrderConsent
+  api: payment-initiation
+- name: FilePaymentConsent
+  api: payment-initiation
+- name: FundsConfirmationConsent
+  api: confirmation-of-funds
+  id: ConsentId
+- name: FundsConfirmation
+  api: confirmation-of-funds
+relationships:
+- from: Account
+  type: belongs_to
+  to: AccountAccessConsent
+  via: ConsentId
+- from: Balance
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: Transaction
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: Beneficiary
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: DirectDebit
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: StandingOrder
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: Statement
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: DomesticPayment
+  type: belongs_to
+  to: DomesticPaymentConsent
+  via: ConsentId
+- from: FundsConfirmation
+  type: belongs_to
+  to: FundsConfirmationConsent
+  via: ConsentId
+- from: AccountAccessConsent
+  type: has_many
+  to: Account
+  via: ConsentId
