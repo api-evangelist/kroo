@@ -1,0 +1,119 @@
+aid: kroo
+name: Kroo
+review:
+  question: >-
+    Does Kroo publish a public developer portal and a confirmed live Open Data
+    endpoint, and what is the provenance and auth model of its Open Banking APIs?
+  answer: partial
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Kroo Bank Ltd is an FCA-authorised UK challenger bank and PSD2 ASPSP, but it
+    is NOT one of the nine CMA9-mandated banks. It operates a real, publicly
+    reachable Open Banking developer portal hosted by Banfico at
+    https://developer.kroo.banfico.io/ (HTTP 200), which is a client-rendered
+    single-page application; no anonymous API catalogue JSON is exposed there
+    (WSO2-style store paths return the SPA shell, not data), and TPP resources
+    sit behind onboarding.
+
+    NO live Open Data endpoint was confirmed and none is expected: Kroo is a
+    branchless, app-only digital bank with no ATMs or branches, so the OBIE Open
+    Data reference APIs (ATMs, Branches, Personal/Business Current Accounts,
+    etc.) that the CMA9 must publish are not mandated for and not published by
+    Kroo. Probes of plausible hosts (api.kroo.com, openbanking.kroo.com,
+    api.kroo.banfico.io) did not resolve (connection failure), and
+    kroo.com/.well-known/open-banking returned 404. No fake host was recorded.
+
+    Kroo's PSD2 dedicated interface is the OBIE Read/Write API family:
+    Account & Transaction Information (AIS), Payment Initiation (PIS), and
+    Confirmation of Funds (CBPII). Per Kroo's own engineering write-up
+    (https://kroo.com/blog/open-banking-at-kroo), the interface is secured to the
+    OpenID Foundation FAPI profile with strong customer authentication delivered
+    as a Customer Initiated Backchannel Authentication (CIBA) decoupled flow in
+    poll mode, built in-house (Clojure/Kafka/AWS) and validated with the OpenID
+    conformance suite. No production or sandbox base URL is publicly disclosed;
+    TPPs receive connection details on onboarding, so apis[].baseURL is left
+    empty rather than fabricated.
+
+    Spec provenance: no Kroo-proprietary OpenAPI is publicly downloadable. The
+    three OpenAPI documents harvested into openapi/ are the SHARED OBIE
+    Read/Write standard v4.0.1 (openapi 3.0.0) that Kroo's interface conforms to,
+    taken verbatim from github.com/OpenBankingUK/read-write-api-specs
+    (dist/openapi). They are the industry standard contract, NOT a Kroo-authored
+    or Kroo-hosted API definition, and are labelled as such.
+  transports:
+    - protocol: REST
+      scheme: https
+      note: OBIE Read/Write RESTful JSON APIs (AIS/PIS/CBPII) over HTTPS. Production base URL not publicly disclosed; issued on TPP onboarding.
+      documented: true
+    - protocol: FAPI-OAuth2-OIDC
+      scheme: https
+      note: FAPI-grade OAuth2/OIDC with PSD2 SCA delivered via CIBA decoupled (poll-mode) flow and mutual-TLS client auth using OBIE/eIDAS certificates. OpenID-conformance validated.
+      documented: true
+    - protocol: OpenData
+      scheme: https
+      documented: false
+      note: No OBIE Open Data (ATMs/Branches/Products) API is published; Kroo is a branchless digital bank and is not a CMA9 bank, so Open Data is not mandated.
+  developerPortalConfirmed: true
+  developerPortalUrl: https://developer.kroo.banfico.io/
+  developerPortalHost: Banfico (SaaS Open Banking platform)
+  openDataConfirmed: false
+  openDataBaseUrl: ''
+  readWriteStandard: OBIE Read/Write API Standard v4.0.1
+  authModel: FAPI OAuth2/OIDC + mutual-TLS + PSD2 SCA (CIBA decoupled, poll mode)
+  cma9: false
+  probes:
+    - url: https://developer.kroo.banfico.io/
+      status: 200
+      note: Real developer portal (Banfico-hosted React SPA).
+    - url: https://www.kroo.com/
+      status: 200
+    - url: https://status.kroo.com/
+      status: 200
+    - url: https://kroo.com/.well-known/open-banking
+      status: 404
+    - url: https://api.kroo.com/open-banking/v3.1/aisp/accounts
+      status: 000
+      note: Host does not resolve; not a live Kroo API host. Not recorded as a base URL.
+    - url: https://api.kroo.banfico.io/.well-known/openid-configuration
+      status: 000
+      note: Host does not resolve.
+    - url: https://www.openbanking.org.uk/regulated-providers/kroo-bank-ltd/
+      status: 200
+      note: Confirms Kroo Bank Ltd as a regulated Open Banking provider.
+specProvenance:
+  - path: openapi/obie-account-info-openapi.yaml
+    title: Account and Transaction API Specification
+    version: 4.0.1
+    openapi: 3.0.0
+    provenance: OBIE-standard (shared), not Kroo-proprietary
+    source: https://github.com/OpenBankingUK/read-write-api-specs
+  - path: openapi/obie-payment-initiation-openapi.yaml
+    title: Payment Initiation API
+    version: 4.0.1
+    openapi: 3.0.0
+    provenance: OBIE-standard (shared), not Kroo-proprietary
+    source: https://github.com/OpenBankingUK/read-write-api-specs
+  - path: openapi/obie-confirmation-funds-openapi.yaml
+    title: Confirmation of Funds API Specification
+    version: 4.0.1
+    openapi: 3.0.0
+    provenance: OBIE-standard (shared), not Kroo-proprietary
+    source: https://github.com/OpenBankingUK/read-write-api-specs
+sources:
+  - url: https://developer.kroo.banfico.io/
+    type: DeveloperPortal
+    note: Kroo's Banfico-hosted Open Banking developer portal (HTTP 200).
+  - url: https://kroo.com/blog/open-banking-at-kroo
+    type: Documentation
+    note: Kroo engineering write-up of its Open Banking build - FAPI, CIBA decoupled/poll mode, OpenID conformance.
+  - url: https://kroo.com/open-banking-performance
+    type: Documentation
+    note: Kroo's quarterly Open Banking API performance reporting page.
+  - url: https://www.openbanking.org.uk/regulated-providers/kroo-bank-ltd/
+    type: Compliance
+    note: Open Banking regulated-provider record for Kroo Bank Ltd.
+  - url: https://github.com/OpenBankingUK/read-write-api-specs
+    type: APIReference
+    note: Source of the shared OBIE Read/Write standard specs harvested into openapi/.
