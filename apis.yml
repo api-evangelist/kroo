@@ -41,7 +41,7 @@ tags:
 - Fintech
 created: '2026-07-23'
 modified: '2026-07-23'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: kroo:kroo-account-information-api
   name: Kroo Account and Transaction Information API
