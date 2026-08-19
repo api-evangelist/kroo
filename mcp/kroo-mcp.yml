@@ -1,11 +1,9 @@
 generated: '2026-07-23'
 method: derived
 status: candidate
-source: >-
-  Derived from Kroo OBIE OpenAPI operations. No official/hosted Kroo or Banfico
-  MCP server was found. This is a CANDIDATE tool surface an agent could expose in
-  front of the FAPI-secured Open Banking APIs; every tool binds to a real
-  operationId and would inherit that operation's parameters as its inputSchema.
+source: Derived from Kroo OBIE OpenAPI operations. No official/hosted Kroo or Banfico MCP server was found.
+  This is a CANDIDATE tool surface an agent could expose in front of the FAPI-secured Open Banking APIs;
+  every tool binds to a real operationId and would inherit that operation's parameters as its inputSchema.
   All access is consent- and mTLS-gated behind TPP onboarding.
 server:
   name: kroo
@@ -45,3 +43,9 @@ tools:
 - name: create_funds_confirmation
   description: Confirm whether a specified amount is available on an account.
   source_operation: openapi/obie-confirmation-funds-openapi.yaml#CreateFundsConfirmations
+deployment:
+  mode: none
+  verified: derived
+  tools: 11
+  checked: '2026-08-12'
+  source: catalog MCP census
