@@ -55,82 +55,447 @@ created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.23'
 apis:
-- aid: kroo:kroo-account-information-api
-  name: Kroo Account and Transaction Information API
-  description: Kroo's PSD2 Account Information Service (AIS) dedicated interface, conformant to the OBIE
-    Read/Write Account and Transaction API Standard. Lets FCA-authorised AISP third parties retrieve,
-    with customer consent, account details, balances, transactions, beneficiaries, standing orders, direct
-    debits, scheduled payments, and statements. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA);
-    access requires TPP onboarding through the Kroo developer portal.
+- aid: kroo:kroo-account-access-consents-api
+  name: Kroo Account Access Consents API
+  description: The Account Access Consents API from Kroo — 2 operation(s) for account access consents.
   humanURL: https://developer.kroo.banfico.io/
-  baseURL: ''
   tags:
-  - Account Information
-  - AIS
-  - Open Banking
-  - OBIE
+  - Account Access Consents
   properties:
   - type: OpenAPI
-    url: openapi/obie-account-info-openapi.yaml
+    url: openapi/kroo-account-access-consents-api-openapi.yml
   - type: Documentation
     url: https://developer.kroo.banfico.io/
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
   - type: Documentation
     url: https://kroo.com/blog/open-banking-at-kroo
-  - type: Overlay
-    url: overlays/kroo-account-info-overlay.yaml
-- aid: kroo:kroo-payment-initiation-api
-  name: Kroo Payment Initiation API
-  description: Kroo's PSD2 Payment Initiation Service (PIS) dedicated interface, conformant to the OBIE
-    Read/Write Payment Initiation API Standard. Lets FCA-authorised PISP third parties initiate domestic
-    payments, scheduled payments, standing orders, and file payments from a customer's Kroo current account
-    with their consent. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA); access requires TPP onboarding
-    through the Kroo developer portal.
+- aid: kroo:kroo-accounts-api
+  name: Kroo Accounts API
+  description: The Accounts API from Kroo — 2 operation(s) for accounts.
   humanURL: https://developer.kroo.banfico.io/
-  baseURL: ''
   tags:
-  - Payment Initiation
-  - PIS
-  - Open Banking
-  - OBIE
+  - Accounts
   properties:
   - type: OpenAPI
-    url: openapi/obie-payment-initiation-openapi.yaml
+    url: openapi/kroo-accounts-api-openapi.yml
   - type: Documentation
     url: https://developer.kroo.banfico.io/
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
   - type: Documentation
     url: https://kroo.com/blog/open-banking-at-kroo
-  - type: Overlay
-    url: overlays/kroo-payment-initiation-overlay.yaml
-- aid: kroo:kroo-confirmation-of-funds-api
-  name: Kroo Confirmation of Funds API
-  description: Kroo's PSD2 Confirmation of Funds Service (CBPII) dedicated interface, conformant to the
-    OBIE Read/Write Confirmation of Funds API Standard. Lets FCA-authorised CBPII third parties confirm,
-    with customer consent, whether a specified amount is available on a Kroo account without disclosing
-    the balance. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA); access requires TPP onboarding
-    through the Kroo developer portal.
+- aid: kroo:kroo-balances-api
+  name: Kroo Balances API
+  description: The Balances API from Kroo — 2 operation(s) for balances.
   humanURL: https://developer.kroo.banfico.io/
-  baseURL: ''
   tags:
-  - Confirmation of Funds
-  - CBPII
-  - Open Banking
-  - OBIE
+  - Balances
   properties:
   - type: OpenAPI
-    url: openapi/obie-confirmation-funds-openapi.yaml
+    url: openapi/kroo-balances-api-openapi.yml
   - type: Documentation
     url: https://developer.kroo.banfico.io/
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
   - type: Documentation
     url: https://kroo.com/blog/open-banking-at-kroo
-  - type: Overlay
-    url: overlays/kroo-confirmation-funds-overlay.yaml
+- aid: kroo:kroo-beneficiaries-api
+  name: Kroo Beneficiaries API
+  description: The Beneficiaries API from Kroo — 2 operation(s) for beneficiaries.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Beneficiaries
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-beneficiaries-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-direct-debits-api
+  name: Kroo Direct Debits API
+  description: The Direct Debits API from Kroo — 2 operation(s) for direct debits.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Direct Debits
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-direct-debits-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-domestic-payment-consents-api
+  name: Kroo Domestic Payment Consents API
+  description: >-
+    The Domestic Payment Consents API from Kroo — 3 operation(s) for domestic payment consents.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Domestic Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-domestic-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-domestic-payments-api
+  name: Kroo Domestic Payments API
+  description: The Domestic Payments API from Kroo — 3 operation(s) for domestic payments.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Domestic Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-domestic-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-domestic-scheduled-payment-consents-api
+  name: Kroo Domestic Scheduled Payment Consents API
+  description: >-
+    The Domestic Scheduled Payment Consents API from Kroo — 2 operation(s) for domestic scheduled payment
+    consents.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Domestic Scheduled Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-domestic-scheduled-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-domestic-scheduled-payments-api
+  name: Kroo Domestic Scheduled Payments API
+  description: >-
+    The Domestic Scheduled Payments API from Kroo — 3 operation(s) for domestic scheduled payments.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Domestic Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-domestic-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-domestic-standing-order-consents-api
+  name: Kroo Domestic Standing Order Consents API
+  description: >-
+    The Domestic Standing Order Consents API from Kroo — 2 operation(s) for domestic standing order consents.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Domestic Standing Order Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-domestic-standing-order-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-domestic-standing-orders-api
+  name: Kroo Domestic Standing Orders API
+  description: >-
+    The Domestic Standing Orders API from Kroo — 3 operation(s) for domestic standing orders.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Domestic Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-domestic-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-file-payment-consents-api
+  name: Kroo File Payment Consents API
+  description: The File Payment Consents API from Kroo — 3 operation(s) for file payment consents.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - File Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-file-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-file-payments-api
+  name: Kroo File Payments API
+  description: The File Payments API from Kroo — 4 operation(s) for file payments.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - File Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-file-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-funds-confirmation-consents-api
+  name: Kroo Funds Confirmation Consents API
+  description: >-
+    The Funds Confirmation Consents API from Kroo — 2 operation(s) for funds confirmation consents.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Funds Confirmation Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-funds-confirmation-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-funds-confirmations-api
+  name: Kroo Funds Confirmations API
+  description: The Funds Confirmations API from Kroo — 1 operation(s) for funds confirmations.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Funds Confirmations
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-funds-confirmations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-international-payment-consents-api
+  name: Kroo International Payment Consents API
+  description: >-
+    The International Payment Consents API from Kroo — 3 operation(s) for international payment consents.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - International Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-international-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-international-payments-api
+  name: Kroo International Payments API
+  description: The International Payments API from Kroo — 3 operation(s) for international payments.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - International Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-international-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-international-scheduled-payments-api
+  name: Kroo International Scheduled Payments API
+  description: >-
+    The International Scheduled Payments API from Kroo — 3 operation(s) for international scheduled payments.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - International Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-international-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-international-scheduled-payments-consents-api
+  name: Kroo International Scheduled Payments Consents API
+  description: >-
+    The International Scheduled Payments Consents API from Kroo — 3 operation(s) for international scheduled
+    payments consents.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - International Scheduled Payments Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-international-scheduled-payments-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-international-standing-orders-api
+  name: Kroo International Standing Orders API
+  description: >-
+    The International Standing Orders API from Kroo — 3 operation(s) for international standing orders.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - International Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-international-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-international-standing-orders-consents-api
+  name: Kroo International Standing Orders Consents API
+  description: >-
+    The International Standing Orders Consents API from Kroo — 2 operation(s) for international standing
+    orders consents.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - International Standing Orders Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-international-standing-orders-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-offers-api
+  name: Kroo Offers API
+  description: The Offers API from Kroo — 2 operation(s) for offers.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Offers
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-offers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-parties-api
+  name: Kroo Parties API
+  description: The Parties API from Kroo — 3 operation(s) for parties.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Parties
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-parties-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-products-api
+  name: Kroo Products API
+  description: The Products API from Kroo — 2 operation(s) for products.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-products-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-scheduled-payments-api
+  name: Kroo Scheduled Payments API
+  description: The Scheduled Payments API from Kroo — 2 operation(s) for scheduled payments.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-standing-orders-api
+  name: Kroo Standing Orders API
+  description: The Standing Orders API from Kroo — 2 operation(s) for standing orders.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-statements-api
+  name: Kroo Statements API
+  description: The Statements API from Kroo — 5 operation(s) for statements.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Statements
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-statements-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
+- aid: kroo:kroo-transactions-api
+  name: Kroo Transactions API
+  description: The Transactions API from Kroo — 2 operation(s) for transactions.
+  humanURL: https://developer.kroo.banfico.io/
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/kroo-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.kroo.banfico.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+  - type: Documentation
+    url: https://kroo.com/blog/open-banking-at-kroo
 common:
+- type: Overlay
+  url: overlays/kroo-account-info-overlay.yaml
+- type: Overlay
+  url: overlays/kroo-payment-initiation-overlay.yaml
+- type: Overlay
+  url: overlays/kroo-confirmation-funds-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/kroo-agentic-access.yml
 - type: VulnerabilityDisclosure
