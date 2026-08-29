@@ -14,6 +14,18 @@ description: Kroo Bank Ltd is a UK app-based challenger bank, founded in 2016 an
   secured with FAPI-grade OAuth2/OIDC, PSD2 strong customer authentication implemented as a CIBA decoupled
   (poll-mode) flow, and mutual-TLS client authentication using OBIE/eIDAS certificates, validated with
   the OpenID Foundation conformance suite.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
