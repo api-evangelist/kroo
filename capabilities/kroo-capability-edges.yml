@@ -1,0 +1,189 @@
+slug: kroo
+provider: Kroo
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 18
+edges:
+- tag: Domestic Payments
+  spec_file: kroo-domestic-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.92
+  evidence: POST /domestic-payments  CreateDomesticPayments  Initiate a Domestic Payment
+  reason: Explicitly initiates and retrieves domestic payment instructions at a licensed UK bank — Payment
+    Initiation Management.
+- tag: Domestic Payment Consents
+  spec_file: kroo-domestic-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.9
+  evidence: POST /domestic-payment-consents  Create a Domestic Payment Consent; GET .../funds-confirmation  Confirm
+    availability of funds for a Domestic Payment
+  reason: Open Banking PISP consent creation and funds confirmation is the capture, validation and authorisation
+    stage of a payment instruction — Payment Initiation Management.
+- tag: International Payments
+  spec_file: kroo-international-payments-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.9
+  evidence: POST /international-payments  Initiate an International Payment; schema OBWriteInternationalResponse5
+  reason: Directly initiates and tracks international payments from a UK current account — cross-border
+    payment management within Payments & Card Management.
+- tag: Domestic Scheduled Payments
+  spec_file: kroo-domestic-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.88
+  evidence: POST /domestic-scheduled-payments  Initiate a Domestic Scheduled Payment
+  reason: Initiation and status retrieval of future-dated domestic payments at the bank — Payment Initiation
+    Management.
+- tag: Domestic Scheduled Payment Consents
+  spec_file: kroo-domestic-scheduled-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: POST /domestic-scheduled-payment-consents  Create a Domestic Scheduled Payment Consent
+  reason: Consent capture and authorisation for future-dated domestic payments — payment instruction capture/authorisation
+    under Payment Initiation Management.
+- tag: Domestic Standing Orders
+  spec_file: kroo-domestic-standing-orders-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: POST /domestic-standing-orders  Submit a Domestic Standing Order; OBWriteDomesticStandingOrderResponse6
+  reason: Submission and retrieval of recurring standing order payment instructions at a UK bank — Payment
+    Initiation Management.
+- tag: International Scheduled Payments
+  spec_file: kroo-international-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.85
+  evidence: POST /international-scheduled-payments  Initiate an International Scheduled Payment
+  reason: Initiation and retrieval of future-dated international payment instructions — cross-border payment
+    initiation and processing.
+- tag: International Standing Orders
+  spec_file: kroo-international-standing-orders-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.85
+  evidence: POST /international-standing-orders  Submit an International Standing Order
+  reason: Submission and retrieval of recurring international payment mandates — cross-border payment
+    management.
+- tag: Domestic Standing Order Consents
+  spec_file: kroo-domestic-standing-order-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.82
+  evidence: POST /domestic-standing-order-consents  Create a Domestic Standing Order Consent; OBWriteDomesticStandingOrderConsentResponse6
+  reason: Authorisation/consent capture for recurring standing order instructions — payment instruction
+    capture and authorisation.
+- tag: File Payment Consents
+  spec_file: kroo-file-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.8
+  evidence: POST /file-payment-consents  Create a File Payment Consent; POST /file-payment-consents/{ConsentId}/file  Upload
+    a File for a ConsentId
+  reason: Bulk/batch payment file consent and authorisation in the Open Banking Payment Initiation spec.
+    Although it includes file upload plumbing, the surface exists to capture and authorise payment instructions.
+- tag: File Payments
+  spec_file: kroo-file-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.8
+  evidence: POST /file-payments  Submit a File Payment; GET /file-payments/{FilePaymentId}/payment-details
+  reason: Submission of bulk payment files and retrieval of their payment details at a licensed bank —
+    payment instruction submission under Payment Initiation Management (with some overlap into payment
+    processing).
+- tag: International Payment Consents
+  spec_file: kroo-international-payment-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.8
+  evidence: POST /international-payment-consents  Create an International Payment Consent; GET .../funds-confirmation  Confirm
+    Funds Availability for an International Payment
+  reason: Open Banking Payment Initiation consent for cross-border payments — capture and authorisation
+    of an international payment instruction, i.e. cross-border payment management.
+- tag: International Scheduled Payments Consents
+  spec_file: kroo-international-scheduled-payments-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.8
+  evidence: POST /international-scheduled-payment-consents  Create an International Scheduled Payment
+    Consent
+  reason: Consent/authorisation stage of a cross-border scheduled payment instruction under the Payment
+    Initiation specification.
+- tag: International Standing Orders Consents
+  spec_file: kroo-international-standing-orders-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.8
+  evidence: POST /international-standing-order-consents  Create an International Standing Order Consent;
+    schema OBWriteInternationalStandingOrderConsentResponse7
+  reason: Authorisation/consent capture for recurring cross-border payment instructions under Payment
+    Initiation.
+- tag: Parties
+  spec_file: kroo-parties-api-openapi.yml
+  capability_id: BC-1300.40
+  capability_id_l1: BC-1300
+  capability_name: Customer Information Management
+  confidence: 0.8
+  evidence: GET /accounts/{AccountId}/party  Get Party for an AccountId; schemas FullLegalName, PartyId,
+    OBPartyRelationships1, OBInternalPartyType1Code
+  reason: Returns account-holder (party) identity and relationship data for a banking customer — banking
+    customer information management.
+- tag: Products
+  spec_file: kroo-products-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.8
+  evidence: GET /products  Get Products; schemas OBPCAData1, OB_InterestRateType1Code_0, OB_FeeFrequency1Code_4
+  reason: Exposes the bank's product master data for accounts, including personal current account details,
+    interest rate types and fee structures — banking product catalogue.
+- tag: Account Access Consents
+  spec_file: kroo-account-access-consents-api-openapi.yml
+  capability_id: BC-1300.40
+  capability_id_l1: BC-1300
+  capability_name: Customer Information Management
+  confidence: 0.7
+  evidence: POST /account-access-consents 'Create an Account Access Consent'; DELETE /account-access-consents/{ConsentId};
+    schema OBReadConsent1
+  reason: UK Open Banking account-access consent lifecycle at a retail bank — creation, retrieval and
+    revocation of a customer's consent to share account data, i.e. customer consent/permission management.
+    Alternative reading as Banking Channels (open-banking channel) keeps confidence below 0.8.
+- tag: Accounts
+  spec_file: kroo-accounts-api-openapi.yml
+  capability_id: BC-1330.10
+  capability_id_l1: BC-1330
+  capability_name: Deposit Account Management
+  confidence: 0.7
+  evidence: GET /accounts  GetAccounts  Get Accounts; schemas OBReadAccount6, OBInternalAccountType1Code,
+    OpeningDate
+  reason: UK Open Banking Account Information API of a retail bank exposing current-account records (account
+    type, opening/maturity date, statement frequency). This is deposit/current account information, so
+    Deposits & Savings — Deposit Account Management is the closest fit; some residual ambiguity with general
+    customer servicing keeps confidence moderate.

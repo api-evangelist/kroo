@@ -502,6 +502,9 @@ apis:
   - type: Documentation
     url: https://kroo.com/blog/open-banking-at-kroo
 common:
+- type: CapabilityMap
+  url: capabilities/kroo-capability-edges.yml
+  name: Kroo Business Capability Map
 - type: Overlay
   url: overlays/kroo-account-info-overlay.yaml
 - type: Overlay
