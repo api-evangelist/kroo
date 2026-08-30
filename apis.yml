@@ -87,6 +87,8 @@ apis:
   description: The Accounts API from Kroo — 2 operation(s) for accounts.
   humanURL: https://developer.kroo.banfico.io/
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -431,6 +433,8 @@ apis:
   description: The Products API from Kroo — 2 operation(s) for products.
   humanURL: https://developer.kroo.banfico.io/
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -491,6 +495,8 @@ apis:
   description: The Transactions API from Kroo — 2 operation(s) for transactions.
   humanURL: https://developer.kroo.banfico.io/
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
