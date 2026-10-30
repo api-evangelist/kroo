@@ -1,4 +1,4 @@
-# Kroo (kroo)
+# Kroo
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,104 +64,145 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kroo Bank Ltd is a UK app-based challenger bank, granted a full UK banking licence in 2021 and launching its digital-only personal current account in December 2022. As an FCA-authorised ASPSP under PSD2, Kroo is a regulated UK Open Banking provider (though not one of the CMA9-mandated banks, and as a branchless digital bank it publishes no Open Data reference APIs). It exposes the OBIE Read/Write API family through a Banfico-hosted developer portal, secured with FAPI-grade OAuth2/OIDC, mutual-TLS, and PSD2 strong customer authentication implemented as a CIBA decoupled flow.
+Kroo Bank Ltd is a UK app-based challenger bank, founded in 2016 and granted a full UK banking licence by the PRA/FCA in 2021 (restrictions lifted in 2022), that launched its digital-only personal current account in December 2022. Independent and venture-backed rather than mutual or part of a larger group, Kroo offers a fee-free everyday current account, interest-paying balances and "Kroo Pots", fee-free spending abroad, and FSCS deposit protection up to GBP 85,000. As an FCA-authorised ASPSP under PSD2, Kroo is a regulated Open Banking provider (though not one of the nine CMA9-mandated banks and, as a branchless digital bank, it publishes no Open Data reference APIs for ATMs or branches). It exposes the UK Open Banking Implementation Entity (OBIE) Read/Write API family - Account and Transaction Information, Payment Initiation, and Confirmation of Funds - through a Banfico-hosted developer portal at developer.kroo.banfico.io, secured with FAPI-grade OAuth2/OIDC, PSD2 strong customer authentication implemented as a CIBA decoupled (poll-mode) flow, and mutual-TLS client authentication using OBIE/eIDAS certificates, validated with the OpenID Foundation conformance suite.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/kroo/refs/heads/main/apis.yml)
+**Areas:** Financial Services · Banking · Open Banking · PSD2 · OBIE · FAPI · United Kingdom · Payments · Account Information · Challenger Bank · Fintech
 
-## Tags
+## Kroo on APIs.io
 
-- Financial Services
-- Banking
-- Open Banking
-- PSD2
-- OBIE
-- FAPI
-- United Kingdom
-- Payments
-- Account Information
-- Challenger Bank
-- Fintech
+Everything profiled for Kroo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kroo/](https://apis.io/providers/kroo/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (28)
 
-- **Created:** 2026-07-23
-- **Modified:** 2026-07-23
+- [Kroo Account Access Consents API](https://apis.io/apis/kroo/kroo-account-access-consents-api/) — The Account Access Consents API from Kroo — 2 operation(s) for account access consents.
+- [Kroo Accounts API](https://apis.io/apis/kroo/kroo-accounts-api/) — The Accounts API from Kroo — 2 operation(s) for accounts.
+- [Kroo Balances API](https://apis.io/apis/kroo/kroo-balances-api/) — The Balances API from Kroo — 2 operation(s) for balances.
+- [Kroo Beneficiaries API](https://apis.io/apis/kroo/kroo-beneficiaries-api/) — The Beneficiaries API from Kroo — 2 operation(s) for beneficiaries.
+- [Kroo Direct Debits API](https://apis.io/apis/kroo/kroo-direct-debits-api/) — The Direct Debits API from Kroo — 2 operation(s) for direct debits.
+- [Kroo Domestic Payment Consents API](https://apis.io/apis/kroo/kroo-domestic-payment-consents-api/) — The Domestic Payment Consents API from Kroo — 3 operation(s) for domestic payment consents.
+- [Kroo Domestic Payments API](https://apis.io/apis/kroo/kroo-domestic-payments-api/) — The Domestic Payments API from Kroo — 3 operation(s) for domestic payments.
+- [Kroo Domestic Scheduled Payment Consents API](https://apis.io/apis/kroo/kroo-domestic-scheduled-payment-consents-api/) — The Domestic Scheduled Payment Consents API from Kroo — 2 operation(s) for domestic scheduled payment consents.
+- [Kroo Domestic Scheduled Payments API](https://apis.io/apis/kroo/kroo-domestic-scheduled-payments-api/) — The Domestic Scheduled Payments API from Kroo — 3 operation(s) for domestic scheduled payments.
+- [Kroo Domestic Standing Order Consents API](https://apis.io/apis/kroo/kroo-domestic-standing-order-consents-api/) — The Domestic Standing Order Consents API from Kroo — 2 operation(s) for domestic standing order consents.
+- [Kroo Domestic Standing Orders API](https://apis.io/apis/kroo/kroo-domestic-standing-orders-api/) — The Domestic Standing Orders API from Kroo — 3 operation(s) for domestic standing orders.
+- [Kroo File Payment Consents API](https://apis.io/apis/kroo/kroo-file-payment-consents-api/) — The File Payment Consents API from Kroo — 3 operation(s) for file payment consents.
+- [Kroo File Payments API](https://apis.io/apis/kroo/kroo-file-payments-api/) — The File Payments API from Kroo — 4 operation(s) for file payments.
+- [Kroo Funds Confirmation Consents API](https://apis.io/apis/kroo/kroo-funds-confirmation-consents-api/) — The Funds Confirmation Consents API from Kroo — 2 operation(s) for funds confirmation consents.
+- [Kroo Funds Confirmations API](https://apis.io/apis/kroo/kroo-funds-confirmations-api/) — The Funds Confirmations API from Kroo — 1 operation(s) for funds confirmations.
+- [Kroo International Payment Consents API](https://apis.io/apis/kroo/kroo-international-payment-consents-api/) — The International Payment Consents API from Kroo — 3 operation(s) for international payment consents.
+- [Kroo International Payments API](https://apis.io/apis/kroo/kroo-international-payments-api/) — The International Payments API from Kroo — 3 operation(s) for international payments.
+- [Kroo International Scheduled Payments API](https://apis.io/apis/kroo/kroo-international-scheduled-payments-api/) — The International Scheduled Payments API from Kroo — 3 operation(s) for international scheduled payments.
+- [Kroo International Scheduled Payments Consents API](https://apis.io/apis/kroo/kroo-international-scheduled-payments-consents-api/) — The International Scheduled Payments Consents API from Kroo — 3 operation(s) for international scheduled payments consents.
+- [Kroo International Standing Orders API](https://apis.io/apis/kroo/kroo-international-standing-orders-api/) — The International Standing Orders API from Kroo — 3 operation(s) for international standing orders.
+- [Kroo International Standing Orders Consents API](https://apis.io/apis/kroo/kroo-international-standing-orders-consents-api/) — The International Standing Orders Consents API from Kroo — 2 operation(s) for international standing orders consents.
+- [Kroo Offers API](https://apis.io/apis/kroo/kroo-offers-api/) — The Offers API from Kroo — 2 operation(s) for offers.
+- [Kroo Parties API](https://apis.io/apis/kroo/kroo-parties-api/) — The Parties API from Kroo — 3 operation(s) for parties.
+- [Kroo Products API](https://apis.io/apis/kroo/kroo-products-api/) — The Products API from Kroo — 2 operation(s) for products.
+- [Kroo Scheduled Payments API](https://apis.io/apis/kroo/kroo-scheduled-payments-api/) — The Scheduled Payments API from Kroo — 2 operation(s) for scheduled payments.
+- [Kroo Standing Orders API](https://apis.io/apis/kroo/kroo-standing-orders-api/) — The Standing Orders API from Kroo — 2 operation(s) for standing orders.
+- [Kroo Statements API](https://apis.io/apis/kroo/kroo-statements-api/) — The Statements API from Kroo — 5 operation(s) for statements.
+- [Kroo Transactions API](https://apis.io/apis/kroo/kroo-transactions-api/) — The Transactions API from Kroo — 2 operation(s) for transactions.
 
-## APIs
+### Published properties
 
-### Kroo Account and Transaction Information API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Kroo's PSD2 Account Information Service (AIS) dedicated interface, conformant to the OBIE Read/Write Account and Transaction API Standard. Lets FCA-authorised AISP third parties retrieve, with customer consent, account details, balances, transactions, beneficiaries, standing orders, direct debits, scheduled payments, and statements. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA); access requires TPP onboarding through the Kroo developer portal.
+#### MCP servers (1)
 
-- **Human URL:** [https://developer.kroo.banfico.io/](https://developer.kroo.banfico.io/)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [kroo](https://apis.io/servers/kroo/kroo/)
 
-- Account Information
-- AIS
-- Open Banking
-- OBIE
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [OpenAPI](openapi/obie-account-info-openapi.yaml) — OBIE Read/Write Account and Transaction API Standard v4.0.1 (shared standard, not a Kroo-proprietary contract)
-- [Documentation](https://developer.kroo.banfico.io/)
-- [API Reference](https://github.com/OpenBankingUK/read-write-api-specs)
-- [Documentation](https://kroo.com/blog/open-banking-at-kroo)
+- [Kroo Agentic Access](https://apis.io/agentic-access/kroo/kroo-agentic-access/)
 
-### Kroo Payment Initiation API
+#### Overlays (3)
 
-Kroo's PSD2 Payment Initiation Service (PIS) dedicated interface, conformant to the OBIE Read/Write Payment Initiation API Standard. Lets FCA-authorised PISP third parties initiate domestic payments, scheduled payments, standing orders, and file payments from a customer's Kroo current account with their consent. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA); access requires TPP onboarding through the Kroo developer portal.
+OpenAPI overlays, including conversational phrasing for each operation.
 
-- **Human URL:** [https://developer.kroo.banfico.io/](https://developer.kroo.banfico.io/)
+- [Kroo Account Info Overlay](https://apis.io/overlays/kroo/kroo-account-info-overlay/)
+- [Kroo Confirmation Funds Overlay](https://apis.io/overlays/kroo/kroo-confirmation-funds-overlay/)
+- [Kroo Payment Initiation Overlay](https://apis.io/overlays/kroo/kroo-payment-initiation-overlay/)
 
-#### Tags
+#### Security (3)
 
-- Payment Initiation
-- PIS
-- Open Banking
-- OBIE
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Kroo Authentication](https://apis.io/security/kroo/kroo-authentication/)
+- [Kroo Domain Security](https://apis.io/security/kroo/kroo-domain-security/)
+- [Kroo Vulnerability Disclosure](https://apis.io/security/kroo/kroo-vulnerability-disclosure/)
 
-- [OpenAPI](openapi/obie-payment-initiation-openapi.yaml) — OBIE Read/Write Payment Initiation API Standard v4.0.1 (shared standard, not a Kroo-proprietary contract)
-- [Documentation](https://developer.kroo.banfico.io/)
-- [API Reference](https://github.com/OpenBankingUK/read-write-api-specs)
-- [Documentation](https://kroo.com/blog/open-banking-at-kroo)
+#### OAuth scopes (1)
 
-### Kroo Confirmation of Funds API
+The permissions the API asks for.
 
-Kroo's PSD2 Confirmation of Funds Service (CBPII) dedicated interface, conformant to the OBIE Read/Write Confirmation of Funds API Standard. Lets FCA-authorised CBPII third parties confirm, with customer consent, whether a specified amount is available on a Kroo account without disclosing the balance. FAPI-secured (OAuth2/OIDC + mTLS + PSD2 SCA via CIBA); access requires TPP onboarding through the Kroo developer portal.
+- [Kroo Scopes](https://apis.io/scopes/kroo/kroo-scopes/)
 
-- **Human URL:** [https://developer.kroo.banfico.io/](https://developer.kroo.banfico.io/)
+## Where to find this API
 
-#### Tags
-
-- Confirmation of Funds
-- CBPII
-- Open Banking
-- OBIE
-
-#### Properties
-
-- [OpenAPI](openapi/obie-confirmation-funds-openapi.yaml) — OBIE Read/Write Confirmation of Funds API Standard v4.0.1 (shared standard, not a Kroo-proprietary contract)
-- [Documentation](https://developer.kroo.banfico.io/)
-- [API Reference](https://github.com/OpenBankingUK/read-write-api-specs)
-- [Documentation](https://kroo.com/blog/open-banking-at-kroo)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.kroo.com/)
-- [Developer Portal](https://developer.kroo.banfico.io/)
 - [Documentation](https://kroo.com/open-banking-performance)
-- [Status Page](https://status.kroo.com/)
-- [Blog](https://www.kroo.com/blog)
 - [Support](https://www.kroo.com/support-is-here)
-- [Terms of Service](https://www.kroo.com/terms-of-use)
-- [Privacy Policy](https://www.kroo.com/privacy-notices)
-- [LinkedIn](https://www.linkedin.com/company/kroobank)
+- [Blog](https://www.kroo.com/blog)
+- [Security](https://kroo.com/.well-known/security.txt)
+- [Terms of service](https://www.kroo.com/terms-of-use)
+- [Privacy policy](https://www.kroo.com/privacy-notices)
+- [Status](https://status.kroo.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 49.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 37.5 |
+| Access clarity | 21.1 |
+
+**Agent readiness 35.4** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | verified |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 42.5** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kroo/](https://apis.io/providers/kroo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kroo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kroo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
